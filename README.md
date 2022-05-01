@@ -13,13 +13,21 @@
 
 # basic Flow of our code 
   ## authenticate using tweepy and use kafka-confluent publish to load data to kafka 
-     kafka_producer_tweets.py : fetch all tweets with language = en and hastags passed as list (refer config.yaml)
+    #### kafka_producer_tweets.py : fetch all tweets with language = en and hastags passed as list (refer config.yaml)
+  
+  
+  ![image](https://user-images.githubusercontent.com/79247013/166160195-e783a8f8-097c-4c0b-a2cc-37c039c04e56.png)
+
+  
+     
   ## spark streaming to consume tweets from kafka_topic = 'tweets'
+  
       kafka_consumer_tweets.py
       note : for geolocation we fetched 'value.geo', 'value.coordinates', 'value.place'
       clean the message/text 
       load it to delta lake ( s3 in this  case) - can be configured 
   ## Experimental directory (needs more improvement) :
+  
       create elastic search index and load the json records using kafka handler.
         refer : kafka_handler.py
     
@@ -38,6 +46,9 @@ Please find attached files
 # Data Quality : Attached documents for the data quality 
    in the code we are writing offset back to kafka after consuming (refer delivery callback)
    in future : we need to add data quality check before pushing to/from delta lake (sample test case written to ensure )
+   
+   ![image](https://user-images.githubusercontent.com/79247013/166160202-38edf184-79c8-43af-a666-ee1ba0e47d46.png)
+
 
 # for large amount of data 
 1. kafka is scabale solution itself (we need to increase the number of partions )

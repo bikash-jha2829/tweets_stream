@@ -42,6 +42,7 @@
 Please find attached files 
   1. using Elastic Stack (open source monitoring tool with kubernetes)
   2. If using AWS ( cloudwatch events --attached monitoring doc for the same with code.)
+  3. Add a Dead Letter queue whenever a exception happen to put the records in Dead Letter Queue
 
 # Data Quality : Attached documents for the data quality 
    in the code we are writing offset back to kafka after consuming (refer delivery callback)
@@ -76,15 +77,9 @@ Please find attached files
 
 
 
-
-
-
-
-
-
-
-Improvements on the existing code :
-1. More test cases 
-2. Duplicate records handling 
-3. Designing of Delta lake (Robust)
+# Improvements on the existing code :
+- 1.Addition of Dead Letter Queue 
+2. More test cases 
+3. Duplicate records handling 
+4. Designing of Delta lake (Robust)
   
